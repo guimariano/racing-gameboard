@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="tests" tests="34" assertions="250" errors="0" failures="0" skipped="0" time="0.010007">
+    <testsuite name="Base\CardTest" file="/var/www/html/tests/Base/CardTest.php" tests="3" assertions="6" errors="0" failures="0" skipped="0" time="0.007962">
+      <testcase name="testHandleSingleCard" class="Base\CardTest" classname="Base.CardTest" file="/var/www/html/tests/Base/CardTest.php" line="14" assertions="2" time="0.007540"/>
+      <testcase name="testHandleMultipleCards" class="Base\CardTest" classname="Base.CardTest" file="/var/www/html/tests/Base/CardTest.php" line="30" assertions="3" time="0.000243"/>
+      <testcase name="testStackCards" class="Base\CardTest" classname="Base.CardTest" file="/var/www/html/tests/Base/CardTest.php" line="52" assertions="1" time="0.000179"/>
+    </testsuite>
+    <testsuite name="Base\Player\PlayersListTest" file="/var/www/html/tests/Base/Player/PlayersListTest.php" tests="5" assertions="12" errors="0" failures="0" skipped="0" time="0.000428">
+      <testsuite name="Base\Player\PlayersListTest::testCounting" tests="2" assertions="4" errors="0" failures="0" skipped="0" time="0.000234">
+        <testcase name="testCounting with data set #0" class="Base\Player\PlayersListTest" classname="Base.Player.PlayersListTest" file="/var/www/html/tests/Base/Player/PlayersListTest.php" line="16" assertions="2" time="0.000215"/>
+        <testcase name="testCounting with data set #1" class="Base\Player\PlayersListTest" classname="Base.Player.PlayersListTest" file="/var/www/html/tests/Base/Player/PlayersListTest.php" line="16" assertions="2" time="0.000019"/>
+      </testsuite>
+      <testsuite name="Base\Player\PlayersListTest::testIteration" tests="2" assertions="7" errors="0" failures="0" skipped="0" time="0.000033">
+        <testcase name="testIteration with data set #0" class="Base\Player\PlayersListTest" classname="Base.Player.PlayersListTest" file="/var/www/html/tests/Base/Player/PlayersListTest.php" line="28" assertions="2" time="0.000015"/>
+        <testcase name="testIteration with data set #1" class="Base\Player\PlayersListTest" classname="Base.Player.PlayersListTest" file="/var/www/html/tests/Base/Player/PlayersListTest.php" line="28" assertions="5" time="0.000018"/>
+      </testsuite>
+      <testcase name="testPlayerUniqueness" class="Base\Player\PlayersListTest" classname="Base.Player.PlayersListTest" file="/var/www/html/tests/Base/Player/PlayersListTest.php" line="45" assertions="1" time="0.000161"/>
+    </testsuite>
+    <testsuite name="Base\ScoringBoardTest" file="/var/www/html/tests/Base/ScoringBoardTest.php" tests="3" assertions="6" errors="0" failures="0" skipped="0" time="0.001019">
+      <testsuite name="Base\ScoringBoardTest::testUpdateResults" tests="3" assertions="6" errors="0" failures="0" skipped="0" time="0.001019">
+        <testcase name="testUpdateResults with data set #0" class="Base\ScoringBoardTest" classname="Base.ScoringBoardTest" file="/var/www/html/tests/Base/ScoringBoardTest.php" line="21" assertions="2" time="0.000880"/>
+        <testcase name="testUpdateResults with data set #1" class="Base\ScoringBoardTest" classname="Base.ScoringBoardTest" file="/var/www/html/tests/Base/ScoringBoardTest.php" line="21" assertions="2" time="0.000089"/>
+        <testcase name="testUpdateResults with data set #2" class="Base\ScoringBoardTest" classname="Base.ScoringBoardTest" file="/var/www/html/tests/Base/ScoringBoardTest.php" line="21" assertions="2" time="0.000050"/>
+      </testsuite>
+    </testsuite>
+    <testsuite name="tests\structure\Race\Card\AccelerateCardTest" file="/var/www/html/tests/structure/app/Race/Card/AccelerateCardTest.php" tests="3" assertions="31" errors="0" failures="0" skipped="0" time="0.000287">
+      <testcase name="testClass" class="tests\structure\Race\Card\AccelerateCardTest" classname="tests.structure.Race.Card.AccelerateCardTest" file="/var/www/html/tests/structure/app/Race/Card/AccelerateCardTest.php" line="19" assertions="5" time="0.000116"/>
+      <testcase name="testMethod__construct" class="tests\structure\Race\Card\AccelerateCardTest" classname="tests.structure.Race.Card.AccelerateCardTest" file="/var/www/html/tests/structure/app/Race/Card/AccelerateCardTest.php" line="31" assertions="14" time="0.000148"/>
+      <testcase name="testMethodProcess" class="tests\structure\Race\Card\AccelerateCardTest" classname="tests.structure.Race.Card.AccelerateCardTest" file="/var/www/html/tests/structure/app/Race/Card/AccelerateCardTest.php" line="53" assertions="12" time="0.000023"/>
+    </testsuite>
+    <testsuite name="tests\structure\Race\Card\RetreatCardTest" file="/var/www/html/tests/structure/app/Race/Card/RetreatCardTest.php" tests="3" assertions="32" errors="0" failures="0" skipped="0" time="0.000086">
+      <testcase name="testClass" class="tests\structure\Race\Card\RetreatCardTest" classname="tests.structure.Race.Card.RetreatCardTest" file="/var/www/html/tests/structure/app/Race/Card/RetreatCardTest.php" line="19" assertions="5" time="0.000047"/>
+      <testcase name="testMethod__construct" class="tests\structure\Race\Card\RetreatCardTest" classname="tests.structure.Race.Card.RetreatCardTest" file="/var/www/html/tests/structure/app/Race/Card/RetreatCardTest.php" line="31" assertions="15" time="0.000023"/>
+      <testcase name="testMethodProcess" class="tests\structure\Race\Card\RetreatCardTest" classname="tests.structure.Race.Card.RetreatCardTest" file="/var/www/html/tests/structure/app/Race/Card/RetreatCardTest.php" line="56" assertions="12" time="0.000016"/>
+    </testsuite>
+    <testsuite name="tests\structure\Race\CardTest" file="/var/www/html/tests/structure/app/Race/CardTest.php" tests="4" assertions="36" errors="0" failures="0" skipped="0" time="0.000057">
+      <testcase name="testClass" class="tests\structure\Race\CardTest" classname="tests.structure.Race.CardTest" file="/var/www/html/tests/structure/app/Race/CardTest.php" line="19" assertions="3" time="0.000014"/>
+      <testcase name="testMethodAppend" class="tests\structure\Race\CardTest" classname="tests.structure.Race.CardTest" file="/var/www/html/tests/structure/app/Race/CardTest.php" line="29" assertions="12" time="0.000018"/>
+      <testcase name="testMethodHandle" class="tests\structure\Race\CardTest" classname="tests.structure.Race.CardTest" file="/var/www/html/tests/structure/app/Race/CardTest.php" line="49" assertions="12" time="0.000013"/>
+      <testcase name="testMethodGetNext" class="tests\structure\Race\CardTest" classname="tests.structure.Race.CardTest" file="/var/www/html/tests/structure/app/Race/CardTest.php" line="69" assertions="9" time="0.000012"/>
+    </testsuite>
+    <testsuite name="tests\structure\Race\Player\PlayersListTest" file="/var/www/html/tests/structure/app/Race/Player/PlayersListTest.php" tests="10" assertions="96" errors="0" failures="0" skipped="0" time="0.000124">
+      <testcase name="testClass" class="tests\structure\Race\Player\PlayersListTest" classname="tests.structure.Race.Player.PlayersListTest" file="/var/www/html/tests/structure/app/Race/Player/PlayersListTest.php" line="19" assertions="7" time="0.000014"/>
+      <testcase name="testMethod__construct" class="tests\structure\Race\Player\PlayersListTest" classname="tests.structure.Race.Player.PlayersListTest" file="/var/www/html/tests/structure/app/Race/Player/PlayersListTest.php" line="33" assertions="14" time="0.000016"/>
+      <testcase name="testMethodJoinPlayer" class="tests\structure\Race\Player\PlayersListTest" classname="tests.structure.Race.Player.PlayersListTest" file="/var/www/html/tests/structure/app/Race/Player/PlayersListTest.php" line="56" assertions="12" time="0.000015"/>
+      <testcase name="testMethodGetPlayers" class="tests\structure\Race\Player\PlayersListTest" classname="tests.structure.Race.Player.PlayersListTest" file="/var/www/html/tests/structure/app/Race/Player/PlayersListTest.php" line="76" assertions="9" time="0.000012"/>
+      <testcase name="testMethodCurrent" class="tests\structure\Race\Player\PlayersListTest" classname="tests.structure.Race.Player.PlayersListTest" file="/var/www/html/tests/structure/app/Race/Player/PlayersListTest.php" line="91" assertions="9" time="0.000011"/>
+      <testcase name="testMethodNext" class="tests\structure\Race\Player\PlayersListTest" classname="tests.structure.Race.Player.PlayersListTest" file="/var/www/html/tests/structure/app/Race/Player/PlayersListTest.php" line="106" assertions="9" time="0.000011"/>
+      <testcase name="testMethodKey" class="tests\structure\Race\Player\PlayersListTest" classname="tests.structure.Race.Player.PlayersListTest" file="/var/www/html/tests/structure/app/Race/Player/PlayersListTest.php" line="121" assertions="9" time="0.000013"/>
+      <testcase name="testMethodValid" class="tests\structure\Race\Player\PlayersListTest" classname="tests.structure.Race.Player.PlayersListTest" file="/var/www/html/tests/structure/app/Race/Player/PlayersListTest.php" line="136" assertions="9" time="0.000011"/>
+      <testcase name="testMethodRewind" class="tests\structure\Race\Player\PlayersListTest" classname="tests.structure.Race.Player.PlayersListTest" file="/var/www/html/tests/structure/app/Race/Player/PlayersListTest.php" line="151" assertions="9" time="0.000011"/>
+      <testcase name="testMethodCount" class="tests\structure\Race\Player\PlayersListTest" classname="tests.structure.Race.Player.PlayersListTest" file="/var/www/html/tests/structure/app/Race/Player/PlayersListTest.php" line="166" assertions="9" time="0.000011"/>
+    </testsuite>
+    <testsuite name="tests\structure\Race\ScoringBoardTest" file="/var/www/html/tests/structure/app/Race/ScoringBoardTest.php" tests="3" assertions="31" errors="0" failures="0" skipped="0" time="0.000043">
+      <testcase name="testClass" class="tests\structure\Race\ScoringBoardTest" classname="tests.structure.Race.ScoringBoardTest" file="/var/www/html/tests/structure/app/Race/ScoringBoardTest.php" line="19" assertions="5" time="0.000012"/>
+      <testcase name="testMethodGetTopPlayers" class="tests\structure\Race\ScoringBoardTest" classname="tests.structure.Race.ScoringBoardTest" file="/var/www/html/tests/structure/app/Race/ScoringBoardTest.php" line="31" assertions="14" time="0.000017"/>
+      <testcase name="testMethodUpdate" class="tests\structure\Race\ScoringBoardTest" classname="tests.structure.Race.ScoringBoardTest" file="/var/www/html/tests/structure/app/Race/ScoringBoardTest.php" line="53" assertions="12" time="0.000014"/>
+    </testsuite>
+  </testsuite>
+</testsuites>

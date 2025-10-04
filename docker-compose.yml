@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  php-racing-game:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: racing-game-php
+    volumes:
+      - .:/var/www/html
+      - ./build:/var/www/html/build
+    working_dir: /var/www/html
+    environment:
+      - PHP_IDE_CONFIG=serverName=racing-game
+    networks:
+      - racing-game-network
+    
+  # Development service with interactive shell
+  php-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: racing-game-dev
+    volumes:
+      - .:/var/www/html
+      - ./build:/var/www/html/build
+    working_dir: /var/www/html
+    environment:
+      - PHP_IDE_CONFIG=serverName=racing-game
+    command: tail -f /dev/null  # Keep container running
+    networks:
+      - racing-game-network
+
+  # Service specifically for running tests
+  php-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: racing-game-test
+    volumes:
+      - .:/var/www/html
+      - ./build:/var/www/html/build
+    working_dir: /var/www/html
+    command: composer test
+    depends_on:
+      - php-racing-game
+    networks:
+      - racing-game-network
+
+networks:
+  racing-game-network:
+    driver: bridge
+
+volumes:
+  build-logs:
+    driver: local

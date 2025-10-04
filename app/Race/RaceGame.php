@@ -144,11 +144,15 @@ class RaceGame implements \SplSubject
      */
     public function attach(\SplObserver $observer): void
     {
-        /**
-         * @todo: implement it with Observer pattern
-         *
-         * Each $observer object must be unique on the observers list.
-         */
+        // Check if observer already exists
+        foreach ($this->observers as $existingObserver) {
+            if ($existingObserver === $observer) {
+                throw new \InvalidArgumentException('Observer already attached');
+            }
+        }
+        
+        // Add observer to the list
+        $this->observers[] = $observer;
     }
 
     /**
@@ -158,11 +162,15 @@ class RaceGame implements \SplSubject
      */
     public function detach(\SplObserver $observer): void
     {
-        /**
-         * @todo: implement it with Observer pattern
-         *
-         * Observer must exists on the observers list.
-         */
+        // Find and remove observer
+        $key = array_search($observer, $this->observers, true);
+        if ($key === false) {
+            throw new \InvalidArgumentException('Observer not found');
+        }
+        
+        unset($this->observers[$key]);
+        // Re-index array to maintain sequential keys
+        $this->observers = array_values($this->observers);
     }
 
     /**
@@ -170,8 +178,9 @@ class RaceGame implements \SplSubject
      */
     public function notify(): void
     {
-        /**
-         * @todo: implement it with Observer pattern
-         */
+        // Notify all observers
+        foreach ($this->observers as $observer) {
+            $observer->update($this);
+        }
     }
 }

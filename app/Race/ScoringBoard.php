@@ -38,9 +38,20 @@ class ScoringBoard implements \SplObserver
     public function update(\SplSubject $subject): void
     {
         if ($subject instanceof RaceGame) {
-            /**
-             * @todo: implement it
-             */
+            // Clear current results
+            $this->results = [];
+            
+            // Get all players and their positions
+            $players = $subject->getPlayers()->getPlayers();
+            $board = $subject->getBoard();
+            
+            foreach ($players as $player) {
+                $position = $board->getPosition($player);
+                $this->results[$player->getNick()] = $position;
+            }
+            
+            // Sort by position (descending - highest position first)
+            arsort($this->results);
         }
     }
 }

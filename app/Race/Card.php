@@ -35,17 +35,28 @@ abstract class Card
      */
     final public function handle(int $diceThrowResult)
     {
-        /**
-         * @todo: implement it with Chain of Responsibility pattern
-         *
-         * Run process($diceThrowResult) method against all stacked cards to find the first matched one.
-         * Return number of fields to move and mark card as processed after use or false when all cards
-         * have been used.
-         *
-         * Cards may return 0 fields to move, when:
-         * - they are used already
-         * - some conditions are not satisfied, e.g. dice throw result is different than number on RetreatCard
-         */
+        // If this card is already processed, skip to next
+        if ($this->processed) {
+            if ($this->next !== null) {
+                return $this->next->handle($diceThrowResult);
+            }
+            return false;
+        }
+        
+        // Process this card
+        $result = $this->process($diceThrowResult);
+        
+        // If this card returns a non-zero result, mark it as processed and return the result
+        if ($result !== 0) {
+            $this->processed = true;
+            return $result;
+        }
+        
+        // If this card doesn't apply (returns 0), try the next card
+        if ($this->next !== null) {
+            return $this->next->handle($diceThrowResult);
+        }
+        
         return false;
     }
 

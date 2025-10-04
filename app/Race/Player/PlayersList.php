@@ -10,6 +10,11 @@ class PlayersList implements \Iterator, \Countable
      * @var Player[]
      */
     private $players = [];
+    
+    /**
+     * @var int
+     */
+    private $position = 0;
 
     /**
      * @param Player[] $players
@@ -33,11 +38,15 @@ class PlayersList implements \Iterator, \Countable
      */
     public function joinPlayer(Player $player): void
     {
-        /**
-         * @todo: implement it
-         *
-         * Each player must be unique
-         */
+        // Check if player already exists (by nick)
+        foreach ($this->players as $existingPlayer) {
+            if ($existingPlayer->getNick() === $player->getNick()) {
+                throw new \InvalidArgumentException('Player already exists');
+            }
+        }
+        
+        // Add the player
+        $this->players[] = $player;
     }
 
     /**
@@ -53,9 +62,9 @@ class PlayersList implements \Iterator, \Countable
      */
     public function current(): ?Player
     {
-        /**
-         * @todo: implement it
-         */
+        if (isset($this->players[$this->position])) {
+            return $this->players[$this->position];
+        }
         return null;
     }
 
@@ -64,9 +73,7 @@ class PlayersList implements \Iterator, \Countable
      */
     public function next(): void
     {
-        /**
-         * @todo: implement it
-         */
+        $this->position++;
     }
 
     /**
@@ -74,10 +81,7 @@ class PlayersList implements \Iterator, \Countable
      */
     public function key(): ?int
     {
-        /**
-         * @todo: implement it
-         */
-        return null;
+        return $this->position;
     }
 
     /**
@@ -85,10 +89,7 @@ class PlayersList implements \Iterator, \Countable
      */
     public function valid(): bool
     {
-        /**
-         * @todo: implement it
-         */
-        return false;
+        return isset($this->players[$this->position]);
     }
 
     /**
@@ -96,9 +97,7 @@ class PlayersList implements \Iterator, \Countable
      */
     public function rewind(): void
     {
-        /**
-         * @todo: implement it
-         */
+        $this->position = 0;
     }
 
     /**
@@ -106,9 +105,6 @@ class PlayersList implements \Iterator, \Countable
      */
     public function count(): int
     {
-        /**
-         * @todo: implement it
-         */
-        return 0;
+        return count($this->players);
     }
 }
