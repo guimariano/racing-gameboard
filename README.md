@@ -54,3 +54,151 @@ You can also build the project locally by executing the following commands:
 
 composer install && composer test # if composer.json file exists
 phing -f build/build.xml # if build/build.xml file exists
+
+---
+
+# Implementation Status ✅
+
+## What Has Been Implemented
+
+This project has been successfully completed with all required design patterns implemented:
+
+### ✅ Observer Pattern
+**Files**: `RaceGame.php` and `ScoringBoard.php`
+
+- **RaceGame** (Subject): Implements `SplSubject` interface
+  - `attach(\SplObserver $observer)` - Adds unique observers
+  - `detach(\SplObserver $observer)` - Removes existing observers
+  - `notify()` - Notifies all attached observers
+  
+- **ScoringBoard** (Observer): Implements `SplObserver` interface
+  - `update(\SplSubject $subject)` - Updates player rankings automatically
+
+### ✅ Chain of Responsibility Pattern
+**File**: `Card.php`
+
+- `handle(int $diceThrowResult)` - Processes cards in chain sequence
+- First applicable card is used and marked as processed
+- Supports both `AccelerateCard` and `RetreatCard` types
+- Returns `false` when no cards are applicable
+
+### ✅ Iterator & Countable Interfaces
+**File**: `PlayersList.php`
+
+- **Iterator Interface**: `current()`, `next()`, `key()`, `valid()`, `rewind()`
+- **Countable Interface**: `count()`
+- **Additional**: `joinPlayer(Player $player)` with uniqueness validation
+
+### ✅ All @todo Annotations Resolved
+- 3 methods in `RaceGame.php` (Observer pattern)
+- 1 method in `ScoringBoard.php` (Observer pattern)
+- 1 method in `Card.php` (Chain of Responsibility)
+- 7 methods in `PlayersList.php` (Iterator/Countable interfaces)
+
+**Total**: 12/12 @todo items completed
+
+## Docker Development Environment 🐳
+
+A complete Docker setup has been added for easy development:
+
+- **Dockerfile**: PHP 7.4 environment compatible with PHPUnit 7.5
+- **docker-compose.yml**: Multi-service setup (main, dev, test)
+- **DOCKER-SETUP.md**: Complete usage instructions
+
+### How to Build, Run and Test
+
+#### Prerequisites
+- Docker
+- Docker Compose
+
+#### Build the Project
+```bash
+# Clone the repository
+git clone <repository-url>
+cd racing-gameboard
+
+# Build the Docker environment
+docker compose build
+```
+
+#### Install Dependencies
+```bash
+# Install PHP dependencies with Composer
+docker compose run --rm php-dev composer install
+```
+
+#### Run Tests
+
+**Test All Implemented Patterns:**
+```bash
+# Test Observer Pattern (RaceGame)
+docker compose run --rm php-dev vendor/bin/phpunit tests/Base/RaceGameTest.php
+
+# Test Observer Pattern (ScoringBoard)
+docker compose run --rm php-dev vendor/bin/phpunit tests/Base/ScoringBoardTest.php
+
+# Test Chain of Responsibility Pattern
+docker compose run --rm php-dev vendor/bin/phpunit tests/Base/CardTest.php
+
+# Test Iterator/Countable Interfaces
+docker compose run --rm php-dev vendor/bin/phpunit tests/Base/Player/PlayersListTest.php
+```
+
+**Test All Patterns Together:**
+```bash
+docker compose run --rm php-dev vendor/bin/phpunit --filter="CardTest|ScoringBoardTest|PlayersListTest"
+```
+
+**Run Full Test Suite:**
+```bash
+docker compose run --rm php-dev vendor/bin/phpunit
+```
+
+#### Development Environment
+```bash
+# Start interactive development container
+docker compose run --rm php-dev bash
+
+# Inside the container, you can run:
+composer install
+vendor/bin/phpunit
+php -l app/Race/RaceGame.php  # Check syntax
+```
+
+#### Alternative Testing (without Docker)
+If you have PHP 7.4+ and Composer installed locally:
+```bash
+composer install
+composer test
+# or
+vendor/bin/phpunit
+```
+
+### Quick Start with Docker:
+```bash
+# Build the environment
+docker compose build
+
+# Run tests for implemented patterns
+docker compose run --rm php-dev vendor/bin/phpunit tests/Base/RaceGameTest.php
+docker compose run --rm php-dev vendor/bin/phpunit tests/Base/ScoringBoardTest.php
+docker compose run --rm php-dev vendor/bin/phpunit tests/Base/CardTest.php
+docker compose run --rm php-dev vendor/bin/phpunit tests/Base/Player/PlayersListTest.php
+
+# Development shell
+docker compose run --rm php-dev bash
+```
+
+## Files Added/Modified
+
+### New Files:
+- `Dockerfile`
+- `docker-compose.yml`
+- `DOCKER-SETUP.md`
+- `IMPLEMENTACAO-PADROES.md`
+
+### Modified Files:
+- `app/Race/RaceGame.php` - Observer pattern implementation
+- `app/Race/ScoringBoard.php` - Observer pattern implementation
+- `app/Race/Card.php` - Chain of Responsibility implementation
+- `app/Race/Player/PlayersList.php` - Iterator/Countable implementation
